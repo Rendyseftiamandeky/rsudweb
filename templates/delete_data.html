@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Hapus Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Hapus Data</h1>
+    </header>
+    <main>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class="flash-messages">
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        <form method="POST">
+            <label for="bulan">Pilih Bulan:</label>
+            <select name="bulan" id="bulan" required>
+                <option value="Januari">Januari</option>
+                <option value="Februari">Februari</option>
+                <option value="Maret">Maret</option>
+                <option value="April">April</option>
+                <option value="Mei">Mei</option>
+                <option value="Juni">Juni</option>
+                <option value="Juli">Juli</option>
+                <option value="Agustus">Agustus</option>
+                <option value="September">September</option>
+                <option value="Oktober">Oktober</option>
+                <option value="November">November</option>
+                <option value="Desember">Desember</option>
+            </select>
+            <br><br>
+            <label for="data_value">Masukkan nilai data yang ingin dihapus:</label><br>
+            <input type="text" name="data_value" id="data_value" required><br><br>
+            <button type="submit">Hapus Data</button>
+        </form>
+        <p><a href="{{ url_for('dashboard') }}">Kembali ke Dashboard</a></p>
+    </main>
+</body>
+</html>
